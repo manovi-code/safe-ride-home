@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Demo of a faith-community ride discount. A parish or church card stays in your browser. Nothing is uploaded.">
+  <meta name="theme-color" content="#140e0a">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; style-src 'self'; script-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'; connect-src 'none'">
+  <title>Faith-community discount (demo) · Safe Ride Home</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="preview-banner" role="region" aria-label="Preview notice">
+    <p>Preview: Safe Ride Home is getting ready to launch in Rhode Island. No real rides or donations yet.</p>
+  </div>
+  <header class="site-header">
+    <div class="wrap header-bar">
+      <a class="logo" href="index.html">
+        <svg viewBox="0 0 36 36" aria-hidden="true">
+          <rect width="36" height="36" rx="10" fill="#312318"/>
+          <path d="M6 18 L18 8 L30 18 V30 H6 Z" fill="#241911" stroke="#f0b429" stroke-width="1.6"/>
+          <rect x="14" y="18" width="8" height="7" fill="#f0b429"/>
+        </svg>
+        <span>Safe Ride Home</span>
+      </a>
+      <input class="nav-check" type="checkbox" id="nav-toggle" aria-controls="site-nav">
+      <label class="nav-toggle" for="nav-toggle">
+        <span class="menu-open-label">Menu</span>
+        <span class="menu-close-label">Close</span>
+      </label>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="request.html">Get a ride</a></li>
+          <li><a href="sponsor.html">Sponsor</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="stats.html">Stats</a></li>
+          <li><a href="faith.html" aria-current="page">Faith discount</a></li>
+          <li><a href="crew.html">Sober Crew</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <div class="wrap page-intro prose narrow">
+      <p class="kicker">Demo flow · Data minimization</p>
+      <h1>Faith-community discount</h1>
+      <p class="lede">Devout members of a parish, church, or other faith community — Catholic and other faiths — will be able to show a card for a ride discount. The discount amount is not set.</p>
+      <p>TODO: set the discount only after the program and its funding rules exist. This page does not invent a percent.</p>
+    </div>
+    <section class="section" aria-labelledby="kept-title">
+      <div class="wrap narrow">
+          <div class="panel prose">
+            <h2 id="kept-title">What would be kept</h2>
+            <p>When this is live, a completed check would store only:</p>
+            <ul class="note-list">
+              <li>a verified flag (yes or no)</li>
+              <li>the parish or church name</li>
+              <li>the time of that decision</li>
+            </ul>
+            <p>The card image would be stored encrypted, never shown on a public page, and deleted within 24 hours after verification. The image would also be deleted within 24 hours of upload if nobody finishes the check.</p>
+            <p>In this demo, the image never leaves the browser. It is not uploaded and it is not stored. Any picture is enough for the preview — you do not need a real card.</p>
+            <p>The future design is written up in <a href="docs/faith-card-verification.md">docs/faith-card-verification.md</a>.</p>
+          </div>
+          <form id="faith-form" class="form panel" data-demo action="#nothing-sent" method="post">
+            <div class="field">
+              <label for="parish">Parish or church name</label>
+              <input id="parish" name="parish" type="text" required maxlength="120" autocomplete="organization">
+              <p class="hint">The only name a live record would keep, along with the verified flag and the time.</p>
+            </div>
+            <div class="field">
+              <label for="card-image">Parish or church card (image)</label>
+              <input id="card-image" name="card-image" type="file" accept="image/*" required aria-describedby="file-hint file-error">
+              <p class="hint" id="file-hint">PNG, JPEG, GIF, or WEBP. The preview uses a local blob URL. There is no upload code on this page.</p>
+              <p id="file-error" class="field-error" hidden></p>
+            </div>
+            <figure>
+              <figcaption class="kicker">Local preview only</figcaption>
+              <div class="preview-frame">
+                <img id="card-preview" alt="" hidden>
+                <p id="preview-empty">No image chosen yet.</p>
+              </div>
+            </figure>
+            <div class="check-block">
+              <input id="consent" name="consent" type="checkbox" required>
+              <label for="consent">I understand what would be kept. When this is live, Safe Ride Home would store only a verified flag (yes or no) and the parish or church name, plus the time it was verified. The card image would be stored encrypted, never shown on a public page, and deleted within 24 hours after verification. In this demo, the image never leaves this browser: it is not uploaded and it is not stored.</label>
+            </div>
+            <noscript>
+              <p>JavaScript is off, so the local preview and the on-page confirmation cannot run. This form is not wired to storage, and the page refuses to submit it anywhere.</p>
+            </noscript>
+            <button class="btn btn-primary" type="submit">Show demo confirmation</button>
+          </form>
+        <div id="faith-confirmation" class="receipt" hidden>
+          <div class="receipt-stripe" aria-hidden="true"></div>
+          <div class="receipt-body">
+            <h2 id="faith-confirmation-title" tabindex="-1">Demo confirmation</h2>
+            <p>Nothing was uploaded. The image never left this browser. It was not saved, and it was not sent to Safe Ride Home or anyone else. No discount was applied. No verified flag was stored.</p>
+            <p>Parish or church name you typed (on this screen only): <span id="echo-parish" class="echo"></span></p>
+            <p>The preview above is still the picture your browser drew locally. Refresh the page and it is gone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="footer-brand">Safe Ride Home</p>
+        <p>A planned nonprofit. Not formed yet. Rhode Island pilot, from Coventry. Founder Mann Novi.</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="request.html">Get a ride</a></li>
+          <li><a href="sponsor.html">Sponsor a ride</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="stats.html">Stats</a></li>
+          <li><a href="faith.html">Faith discount</a></li>
+          <li><a href="crew.html">Sober Driver Crew</a></li>
+          <li><a href="about.html">About and FAQ</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="profile-rider.html">Sample rider</a></li>
+          <li><a href="profile-donor.html">Sample donor</a></li>
+          <li><a href="profile-volunteer.html">Sample volunteer</a></li>
+          <li><a href="docs/backend.md">Backend notes (for later)</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="wrap">
+      <p class="footer-fine">This preview does not accept donations, dispatch rides, or collect what you type. No analytics and no tracking scripts.</p>
+    </div>
+  </footer>
+  <script src="js/flags.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/faith.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Demo: request a safe ride. Nothing is sent. Safe Ride Home is a Rhode Island preview.">
+  <meta name="theme-color" content="#140e0a">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; style-src 'self'; script-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'; connect-src 'none'">
+  <title>Get a safe ride (demo) · Safe Ride Home</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="preview-banner" role="region" aria-label="Preview notice">
+    <p>Preview: Safe Ride Home is getting ready to launch in Rhode Island. No real rides or donations yet.</p>
+  </div>
+  <header class="site-header">
+    <div class="wrap header-bar">
+      <a class="logo" href="index.html">
+        <svg viewBox="0 0 36 36" aria-hidden="true">
+          <rect width="36" height="36" rx="10" fill="#312318"/>
+          <path d="M6 18 L18 8 L30 18 V30 H6 Z" fill="#241911" stroke="#f0b429" stroke-width="1.6"/>
+          <rect x="14" y="18" width="8" height="7" fill="#f0b429"/>
+        </svg>
+        <span>Safe Ride Home</span>
+      </a>
+      <input class="nav-check" type="checkbox" id="nav-toggle" aria-controls="site-nav">
+      <label class="nav-toggle" for="nav-toggle">
+        <span class="menu-open-label">Menu</span>
+        <span class="menu-close-label">Close</span>
+      </label>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="request.html" aria-current="page">Get a ride</a></li>
+          <li><a href="sponsor.html">Sponsor</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="stats.html">Stats</a></li>
+          <li><a href="faith.html">Faith discount</a></li>
+          <li><a href="crew.html">Sober Crew</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <div class="wrap page-intro prose narrow">
+      <p class="kicker">Demo flow</p>
+      <h1>Get a safe ride</h1>
+      <p class="lede">Tell us where you’d be picked up, where you’re going, and how many people are riding. This form is a preview of that conversation. It does not request a ride.</p>
+      <p><a href="packages.html">See ride packages</a>. A package can be preselected from that page. Pricing TBD — no package has a price here.</p>
+    </div>
+    <section class="section" aria-labelledby="works-title">
+      <div class="wrap narrow">
+        <div class="panel prose">
+          <h2 id="works-title">How it will work</h2>
+          <p>When the program is live, Safe Ride Home plans to cover the trip with a donor-funded ride credit or voucher. Free or discounted depends on the funds still available. This version has no drivers on staff, and a volunteer is not sent to pick you up.</p>
+          <p>TODO: choose the ride-credit or voucher program and publish its real terms. This page does not state a company’s rules, prices, or a partnership.</p>
+          <p>You would also see a plain-language reason for the match. A full cover sounds like: “Funds available covered 100% of this ride.” A partial cover names the share and what is left to pay. If the fund is empty, the reason says the fund cannot cover a ride.</p>
+        </div>
+        <form id="request-form" class="form panel" data-demo action="#nothing-sent" method="post">
+          <fieldset>
+            <legend>Ride package</legend>
+            <label class="choice"><input type="radio" name="package" value="none" checked> No package — a single safe ride</label>
+            <label class="choice"><input type="radio" name="package" value="romantic"> Romantic Getaway</label>
+            <label class="choice"><input type="radio" name="package" value="squad"> Squad Ride</label>
+            <label class="choice"><input type="radio" name="package" value="new-driver"> New Driver Safe Pass</label>
+            <p id="package-note" class="hint" aria-live="polite">No package selected. Pricing TBD on every package.</p>
+          </fieldset>
+          <fieldset>
+            <legend>Trip</legend>
+            <label class="choice"><input type="radio" name="trip" value="one-way" checked> One way</label>
+            <label class="choice"><input type="radio" name="trip" value="round"> Round trip</label>
+            <p class="hint" id="trip-hint">A round trip would be two ride credits: out and back. The price of a credit is not set.</p>
+          </fieldset>
+          <div class="field">
+            <label for="pickup">Pickup</label>
+            <input id="pickup" name="pickup" type="text" required autocomplete="street-address" maxlength="160">
+            <p class="hint" id="pickup-hint">Where you’d be picked up. A street address or a place name is enough for this demo.</p>
+          </div>
+          <div class="field">
+            <label for="dropoff">Dropoff</label>
+            <input id="dropoff" name="dropoff" type="text" required autocomplete="street-address" maxlength="160">
+            <p class="hint" id="dropoff-hint">Where you’d be going.</p>
+          </div>
+          <div class="field">
+            <label for="riders">Number of riders</label>
+            <select id="riders" name="riders" required>
+              <option value="">Choose</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+            <p class="hint" id="riders-hint">Count everyone in the ride, including you. One request stands for one vehicle. TODO: a provider’s real seat limit is not stated here.</p>
+          </div>
+          <noscript>
+            <p>JavaScript is off, so the on-page confirmation cannot run. This form is not wired to a server, and the page refuses to submit it anywhere.</p>
+          </noscript>
+          <button class="btn btn-primary" type="submit">Show demo confirmation</button>
+        </form>
+
+        <div id="request-confirmation" class="receipt" hidden>
+          <div class="receipt-stripe" aria-hidden="true"></div>
+          <div class="receipt-body">
+            <h2 id="request-confirmation-title" tabindex="-1">Demo confirmation</h2>
+            <p>Nothing was sent. No ride was requested. No credit or voucher was issued. No one was contacted. What you typed stayed in this browser and was not saved.</p>
+            <h3>What you entered</h3>
+            <p>Package: <span id="echo-package" class="echo"></span></p>
+            <p>Trip: <span id="echo-trip" class="echo"></span></p>
+            <p>Pickup: <span id="echo-pickup" class="echo"></span></p>
+            <p>Dropoff: <span id="echo-dropoff" class="echo"></span></p>
+            <p>Riders: <span id="echo-riders" class="echo"></span></p>
+            <hr class="sep">
+            <p><strong class="badge">Sample data</strong></p>
+            <h3>Why you got this</h3>
+            <p class="why-sentence">Funds available covered 100% of this ride.</p>
+            <p>That sentence is a sample of the reason a future match would show. It does not describe your trip. This demo did not look at a fund balance, did not price a ride, and did not match you to a credit. The sentence stays the same no matter what you typed.</p>
+            <h3>How that sentence gets chosen later</h3>
+            <ol class="note-list">
+              <li>Look at donor funds still available.</li>
+              <li>Look at the price of a ride credit or voucher for the trip. TODO: that price has to come from the real program. It is not set on this site.</li>
+              <li>If the funds cover the whole price, the ride is free and the reason reads: “Funds available covered 100% of this ride.”</li>
+              <li>If the funds cover part of the price, the reason names the share covered and what is left to pay.</li>
+              <li>If the funds cover none of it, the reason says the fund cannot cover a ride.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="footer-brand">Safe Ride Home</p>
+        <p>A planned nonprofit. Not formed yet. Rhode Island pilot, from Coventry. Founder Mann Novi.</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="request.html">Get a ride</a></li>
+          <li><a href="sponsor.html">Sponsor a ride</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="stats.html">Stats</a></li>
+          <li><a href="faith.html">Faith discount</a></li>
+          <li><a href="crew.html">Sober Driver Crew</a></li>
+          <li><a href="about.html">About and FAQ</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="profile-rider.html">Sample rider</a></li>
+          <li><a href="profile-donor.html">Sample donor</a></li>
+          <li><a href="profile-volunteer.html">Sample volunteer</a></li>
+          <li><a href="docs/backend.md">Backend notes (for later)</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="wrap">
+      <p class="footer-fine">This preview does not accept donations, dispatch rides, or collect what you type. No analytics and no tracking scripts.</p>
+    </div>
+  </footer>
+  <script src="js/flags.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/packages.js"></script>
+  <script src="js/request.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Demo: sponsor a ride. No payment is processed. Donations open after Safe Ride Home is officially a nonprofit.">
+  <meta name="theme-color" content="#140e0a">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; style-src 'self'; script-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'; connect-src 'none'">
+  <title>Sponsor a ride (demo) · Safe Ride Home</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="preview-banner" role="region" aria-label="Preview notice">
+    <p>Preview: Safe Ride Home is getting ready to launch in Rhode Island. No real rides or donations yet.</p>
+  </div>
+  <header class="site-header">
+    <div class="wrap header-bar">
+      <a class="logo" href="index.html">
+        <svg viewBox="0 0 36 36" aria-hidden="true">
+          <rect width="36" height="36" rx="10" fill="#312318"/>
+          <path d="M6 18 L18 8 L30 18 V30 H6 Z" fill="#241911" stroke="#f0b429" stroke-width="1.6"/>
+          <rect x="14" y="18" width="8" height="7" fill="#f0b429"/>
+        </svg>
+        <span>Safe Ride Home</span>
+      </a>
+      <input class="nav-check" type="checkbox" id="nav-toggle" aria-controls="site-nav">
+      <label class="nav-toggle" for="nav-toggle">
+        <span class="menu-open-label">Menu</span>
+        <span class="menu-close-label">Close</span>
+      </label>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="request.html">Get a ride</a></li>
+          <li><a href="sponsor.html" aria-current="page">Sponsor</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="stats.html">Stats</a></li>
+          <li><a href="faith.html">Faith discount</a></li>
+          <li><a href="crew.html">Sober Crew</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <div class="wrap page-intro prose narrow">
+      <p class="kicker">Demo flow</p>
+      <h1>Sponsor a ride</h1>
+      <p class="lede">Pick a gift amount, or choose “sponsor one ride” without a dollar figure. Add a name or stay anonymous. The leaderboard box starts unchecked.</p>
+      <p>Safe Ride Home is not a nonprofit yet, so this page cannot take a payment. Donations open after we’re officially a nonprofit.</p>
+      <p>You can <a href="packages.html">see ride packages</a> and gift one from this form, including a New Driver Safe Pass. Package prices are <strong class="price-tag">Pricing TBD</strong>. A dollar choice below is a gift size you pick for the demo, not the price of a package.</p>
+    </div>
+    <section class="section" aria-labelledby="gift-title">
+      <div class="wrap narrow">
+        <form id="sponsor-form" class="form panel" data-demo action="#nothing-sent" method="post">
+          <fieldset>
+            <legend>What this gift is for</legend>
+            <label class="choice"><input type="radio" name="gift" value="general" checked> A general gift toward safe rides</label>
+            <label class="choice"><input type="radio" name="gift" value="romantic"> Romantic Getaway</label>
+            <label class="choice"><input type="radio" name="gift" value="squad"> Squad Ride</label>
+            <label class="choice"><input type="radio" name="gift" value="new-driver"> Gift a New Driver Safe Pass</label>
+            <p id="gift-note" class="hint" aria-live="polite">No package selected. Pricing TBD — this form does not charge a package price.</p>
+          </fieldset>
+          <fieldset>
+            <legend id="gift-title">Gift amount</legend>
+            <p class="hint" id="amount-hint">These dollar choices are gift sizes for the demo. They are not the price of a ride or a package, and nothing is charged. Package prices are Pricing TBD.</p>
+            <label class="choice"><input type="radio" name="amount" value="10" required> $10</label>
+            <label class="choice"><input type="radio" name="amount" value="25"> $25</label>
+            <label class="choice"><input type="radio" name="amount" value="50"> $50</label>
+            <label class="choice"><input type="radio" name="amount" value="100"> $100</label>
+            <label class="choice"><input type="radio" name="amount" value="custom"> Other amount</label>
+            <label class="choice"><input type="radio" name="amount" value="one-ride"> Sponsor one ride</label>
+            <p class="hint">“Sponsor one ride” has no dollar value yet. TODO: set it from the real cost of a ride credit or voucher. This site does not guess that price.</p>
+          </fieldset>
+          <div class="field" id="custom-amount-wrap" hidden>
+            <label for="custom-amount">Other amount in dollars</label>
+            <input id="custom-amount" name="custom-amount" type="number" inputmode="decimal" min="0.01" step="0.01" placeholder="For example, 15">
+          </div>
+          <fieldset>
+            <legend>Name</legend>
+            <label class="choice"><input type="radio" name="identity" value="anonymous" checked> Anonymous</label>
+            <label class="choice"><input type="radio" name="identity" value="named"> Use a name</label>
+          </fieldset>
+          <div class="field" id="name-wrap" hidden>
+            <label for="display-name">Name to show if you opt in</label>
+            <input id="display-name" name="display-name" type="text" maxlength="80" autocomplete="nickname">
+          </div>
+          <div class="check-block">
+            <input type="checkbox" id="leaderboard" name="leaderboard" value="yes">
+            <label for="leaderboard">Show my name on the public donor leaderboard. Leave this unchecked to stay off the list. Unchecked is the default.</label>
+          </div>
+          <p class="hint">Anonymous gifts would be counted in a total without a name. This demo does not publish a list and does not add to the $0 total on the home page.</p>
+          <noscript>
+            <p>JavaScript is off, so the on-page confirmation cannot run. This form is not wired to a payment processor, and the page refuses to submit it anywhere.</p>
+          </noscript>
+          <button class="btn btn-primary" type="submit">Show demo confirmation</button>
+        </form>
+
+        <div id="sponsor-confirmation" class="receipt" hidden>
+          <div class="receipt-stripe" aria-hidden="true"></div>
+          <div class="receipt-body">
+            <h2 id="sponsor-confirmation-title" tabindex="-1">Demo confirmation</h2>
+            <p><strong>Donations open after we’re officially a nonprofit.</strong></p>
+            <p>Nothing was charged. This form was not sent. Safe Ride Home cannot accept money yet.</p>
+            <p>Gift: <span id="echo-gift" class="echo"></span></p>
+            <p>Amount: <span id="echo-amount" class="echo"></span></p>
+            <p>Name: <span id="echo-name" class="echo"></span></p>
+            <p id="echo-board"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="footer-brand">Safe Ride Home</p>
+        <p>A planned nonprofit. Not formed yet. Rhode Island pilot, from Coventry. Founder Mann Novi.</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="request.html">Get a ride</a></li>
+          <li><a href="sponsor.html">Sponsor a ride</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="stats.html">Stats</a></li>
+          <li><a href="faith.html">Faith discount</a></li>
+          <li><a href="crew.html">Sober Driver Crew</a></li>
+          <li><a href="about.html">About and FAQ</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="profile-rider.html">Sample rider</a></li>
+          <li><a href="profile-donor.html">Sample donor</a></li>
+          <li><a href="profile-volunteer.html">Sample volunteer</a></li>
+          <li><a href="docs/backend.md">Backend notes (for later)</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="wrap">
+      <p class="footer-fine">This preview does not accept donations, dispatch rides, or collect what you type. No analytics and no tracking scripts.</p>
+    </div>
+  </footer>
+  <script src="js/flags.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/packages.js"></script>
+  <script src="js/sponsor.js"></script>
+</body>
+</html>

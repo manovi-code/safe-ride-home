@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Privacy summary for the Safe Ride Home preview. Data minimization, no trackers, and how a parish card would be handled later.">
+  <meta name="theme-color" content="#140e0a">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; style-src 'self'; script-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'; connect-src 'none'">
+  <title>Privacy · Safe Ride Home</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="preview-banner" role="region" aria-label="Preview notice">
+    <p>Preview: Safe Ride Home is getting ready to launch in Rhode Island. No real rides or donations yet.</p>
+  </div>
+  <header class="site-header">
+    <div class="wrap header-bar">
+      <a class="logo" href="index.html">
+        <svg viewBox="0 0 36 36" aria-hidden="true">
+          <rect width="36" height="36" rx="10" fill="#312318"/>
+          <path d="M6 18 L18 8 L30 18 V30 H6 Z" fill="#241911" stroke="#f0b429" stroke-width="1.6"/>
+          <rect x="14" y="18" width="8" height="7" fill="#f0b429"/>
+        </svg>
+        <span>Safe Ride Home</span>
+      </a>
+      <input class="nav-check" type="checkbox" id="nav-toggle" aria-controls="site-nav">
+      <label class="nav-toggle" for="nav-toggle">
+        <span class="menu-open-label">Menu</span>
+        <span class="menu-close-label">Close</span>
+      </label>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="request.html">Get a ride</a></li>
+          <li><a href="sponsor.html">Sponsor</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="stats.html">Stats</a></li>
+          <li><a href="faith.html">Faith discount</a></li>
+          <li><a href="crew.html">Sober Crew</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <div class="wrap page-intro prose">
+      <p class="kicker">Data minimization</p>
+      <h1>Privacy</h1>
+      <p class="lede">This is a plain-language summary for a preview site. It is not a legal privacy policy for a formed nonprofit. TODO: have counsel review a real policy before launch. There is no staffed contact inbox yet.</p>
+      <h2>This demo</h2>
+      <p>The pages do not collect data. Forms do not submit. A parish or church card image does not upload. Nothing is written to storage in your browser. There is no account.</p>
+      <p>There are no analytics scripts, advertising pixels, or other trackers. The site does not set a cookie for tracking. A content security policy blocks form submission and outside connections.</p>
+      <h2>The rule we want later</h2>
+      <p>Collect the smallest set of facts that lets the service run, say what that set is before anyone provides it, and delete the rest on a short clock.</p>
+      <h2>Faith-community card</h2>
+      <p>Consent comes before an upload. A live system would keep only a verified flag (yes or no), the parish or church name, and the time of the decision: <code>{ verified, parish_name, verified_at }</code>.</p>
+      <p>The image would be stored encrypted, never displayed on a public page, and deleted within 24 hours after verification. If nobody verifies it, the plan is to delete it within 24 hours of upload anyway. The design notes are in <a href="docs/faith-card-verification.md">docs/faith-card-verification.md</a>. The demo keeps the image inside your browser and then forgets it when you leave.</p>
+      <h2>Rides, gifts, and the waitlist</h2>
+      <ul class="note-list">
+        <li>A live ride request would ask for what a ride credit needs (pickup, dropoff, riders). TODO: write the exact field list when a program exists. Phone numbers and payment data are not collected on this preview.</li>
+        <li>A donor’s name goes on the public leaderboard only if they opt in. The checkbox starts unchecked. Anonymous gifts would count toward a total without a name.</li>
+        <li>A Sober Driver Crew waitlist, when it exists, would store the name, email, and town someone chose to give. The demo form does not.</li>
+      </ul>
+      <h2>Selling data</h2>
+      <p>The plan is to not sell personal information. This preview has none to sell.</p>
+      <h2>Sample people</h2>
+      <p>Rider, donor, and volunteer profiles marked SAMPLE are fictional. They are not records of a person.</p>
+      <p>Backend sketches that are not running: <a href="docs/backend.md">docs/backend.md</a>.</p>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="footer-brand">Safe Ride Home</p>
+        <p>A planned nonprofit. Not formed yet. Rhode Island pilot, from Coventry. Founder Mann Novi.</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="request.html">Get a ride</a></li>
+          <li><a href="sponsor.html">Sponsor a ride</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="stats.html">Stats</a></li>
+          <li><a href="faith.html">Faith discount</a></li>
+          <li><a href="crew.html">Sober Driver Crew</a></li>
+          <li><a href="about.html">About and FAQ</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="profile-rider.html">Sample rider</a></li>
+          <li><a href="profile-donor.html">Sample donor</a></li>
+          <li><a href="profile-volunteer.html">Sample volunteer</a></li>
+          <li><a href="docs/backend.md">Backend notes (for later)</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="wrap">
+      <p class="footer-fine">This preview does not accept donations, dispatch rides, or collect what you type. No analytics and no tracking scripts.</p>
+    </div>
+  </footer>
+  <script src="js/flags.js"></script>
+  <script src="js/site.js"></script>
+</body>
+</html>
