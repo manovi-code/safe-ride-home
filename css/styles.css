@@ -981,3 +981,15 @@ hr.sep {
     scroll-behavior: auto;
   }
 }
+
+/* Phone gutters. .hero and .band-inner use a padding shorthand that
+   clears the side padding from .wrap, so headlines and buttons sit on
+   the screen edge. Restore a comfortable inset only up to 480px. */
+@media (max-width: 480px) {
+  .wrap,
+  .hero,
+  .band-inner,
+  .preview-banner {
+    padding-inline: 1.5rem;
+  }
+}
