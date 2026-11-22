@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How Safe Ride Home would work, and answers to common questions. Rhode Island preview. Nonprofit not formed yet.">
+  <meta name="theme-color" content="#140e0a">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; style-src 'self'; script-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'; connect-src 'none'">
+  <title>About and FAQ · Safe Ride Home</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="preview-banner" role="region" aria-label="Preview notice">
+    <p>Preview: Safe Ride Home is getting ready to launch in Rhode Island. No real rides or donations yet.</p>
+  </div>
+  <header class="site-header">
+    <div class="wrap header-bar">
+      <a class="logo" href="index.html">
+        <svg viewBox="0 0 36 36" aria-hidden="true">
+          <rect width="36" height="36" rx="10" fill="#312318"/>
+          <path d="M6 18 L18 8 L30 18 V30 H6 Z" fill="#241911" stroke="#f0b429" stroke-width="1.6"/>
+          <rect x="14" y="18" width="8" height="7" fill="#f0b429"/>
+        </svg>
+        <span>Safe Ride Home</span>
+      </a>
+      <input class="nav-check" type="checkbox" id="nav-toggle" aria-controls="site-nav">
+      <label class="nav-toggle" for="nav-toggle">
+        <span class="menu-open-label">Menu</span>
+        <span class="menu-close-label">Close</span>
+      </label>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="request.html">Get a ride</a></li>
+          <li><a href="sponsor.html">Sponsor</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="stats.html">Stats</a></li>
+          <li><a href="faith.html">Faith discount</a></li>
+          <li><a href="crew.html">Sober Crew</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <div class="wrap page-intro prose">
+      <p class="kicker">The plan</p>
+      <h1>About Safe Ride Home</h1>
+      <p class="lede">Safe Ride Home is Mann Novi’s plan for a Rhode Island nonprofit, starting from Coventry. The organization is not formed yet. This website is a preview of the service, so neighbors can see the shape of it before anyone takes a ride or gives a dollar.</p>
+    </div>
+    <section class="section" id="how" aria-labelledby="how-title">
+      <div class="wrap prose">
+        <h2 id="how-title">How it works</h2>
+        <ol class="note-list">
+          <li>A rider asks for a safe ride: pickup, dropoff, and how many people.</li>
+          <li>When the program is live, the request is matched to donor funds still on hand.</li>
+          <li>The ride is covered with a ride credit or voucher. Free or discounted depends on those funds. The rider sees a plain-language reason, such as “Funds available covered 100% of this ride.”</li>
+          <li>Version 1 has no in-house drivers. A volunteer is not sent to drive the rider.</li>
+        </ol>
+        <p>The working idea is a donor-funded ride credit or voucher. People sometimes describe that as an Uber or Lyft credit. TODO: no company is a partner, and this site does not state any company’s program terms, prices, or rules.</p>
+        <p>Getting someone’s own car home, with a sober volunteer at the wheel, is a later phase called the <a href="crew.html">Sober Driver Crew</a>. It is not part of dispatch until insurance (including driving a third party’s vehicle), background checks, and state rules are in place, and until Mann confirms that in writing. The code flag <code>SOBER_CREW_DISPATCH_ENABLED</code> is false.</p>
+        <p>Members of a parish, church, or other faith community will be able to ask for a <a href="faith.html">ride discount</a> with a card. The discount amount is unset. The card image is handled with a short list of stored facts, described on the privacy page.</p>
+      </div>
+    </section>
+    <section class="section" aria-labelledby="faq-title">
+      <div class="wrap">
+        <h2 id="faq-title">FAQ</h2>
+        <details class="faq">
+          <summary>Is Safe Ride Home a nonprofit today?</summary>
+          <p>No. It is a planned nonprofit. It is not formed, and it is not a tax-exempt organization. Donations are not open.</p>
+        </details>
+        <details class="faq">
+          <summary>Can I request a real ride on this site?</summary>
+          <p>No. The request page is a demo. Nothing is sent, and no ride credit is issued. The banner on every page says the same thing.</p>
+        </details>
+        <details class="faq">
+          <summary>Can I donate on this site?</summary>
+          <p>No. Donations open after we’re officially a nonprofit. The sponsor page does not process a payment.</p>
+        </details>
+        <details class="faq">
+          <summary>Who drives?</summary>
+          <p>In this first version, nobody from Safe Ride Home. The plan is to cover a ride credit or voucher. TODO: the program is not chosen.</p>
+        </details>
+        <details class="faq">
+          <summary>Will my ride be free?</summary>
+          <p>Free or discounted, depending on donor funds available at the time. If the fund cannot cover the credit, a live site would say so in plain words. This preview does not check a fund, and it does not invent a price.</p>
+        </details>
+        <details class="faq">
+          <summary>What are the ride packages?</summary>
+          <p>Three demo bundles: Romantic Getaway (round-trip ride credits for two, for people 40 and up), Squad Ride (friends 18 and up getting home together — not a drinking package), and New Driver Safe Pass (ride credits a parent, family member, or sponsor can preload). Every one of them is <a href="packages.html">Pricing TBD</a>. This site does not sell them.</p>
+        </details>
+        <details class="faq">
+          <summary>What is the Sober Driver Crew?</summary>
+          <p>A later phase: volunteer sober drivers who would help get someone’s car home. It is not active. See the <a href="crew.html">crew page</a> for the insurance, background-check, and state-rule requirements, and for the off switch in the code.</p>
+        </details>
+        <details class="faq">
+          <summary>What is the faith-community discount?</summary>
+          <p>A planned discount for devout members who can show a parish or church card, Catholic or another faith. The amount is not set. The demo never uploads the image. Read the <a href="faith.html">faith page</a> for the exact consent text.</p>
+        </details>
+        <details class="faq">
+          <summary>What happens to a card image later?</summary>
+          <p>The plan is to keep only a verified flag, the parish or church name, and the time of the decision. The image would be encrypted, never posted publicly, and deleted within 24 hours after verification. Details are on the <a href="privacy.html">privacy page</a> and in <a href="docs/faith-card-verification.md">the design notes</a>.</p>
+        </details>
+        <details class="faq">
+          <summary>Do you use cookies or trackers?</summary>
+          <p>This preview does not. There is no analytics script and no advertising pixel. See <a href="privacy.html">Privacy</a>.</p>
+        </details>
+        <details class="faq">
+          <summary>Where is the pilot, and who started this?</summary>
+          <p>Rhode Island first. Founder Mann Novi, in Coventry.</p>
+        </details>
+        <details class="faq">
+          <summary>Are the stats real?</summary>
+          <p>The live totals are $0 raised and 0 rides funded, marked “Launching soon.” Any other number is labeled SAMPLE DATA, and the DUI figure is an estimate with the formula and placeholder assumptions written on the <a href="stats.html">stats page</a>.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="footer-brand">Safe Ride Home</p>
+        <p>A planned nonprofit. Not formed yet. Rhode Island pilot, from Coventry. Founder Mann Novi.</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="request.html">Get a ride</a></li>
+          <li><a href="sponsor.html">Sponsor a ride</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="stats.html">Stats</a></li>
+          <li><a href="faith.html">Faith discount</a></li>
+          <li><a href="crew.html">Sober Driver Crew</a></li>
+          <li><a href="about.html">About and FAQ</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="profile-rider.html">Sample rider</a></li>
+          <li><a href="profile-donor.html">Sample donor</a></li>
+          <li><a href="profile-volunteer.html">Sample volunteer</a></li>
+          <li><a href="docs/backend.md">Backend notes (for later)</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="wrap">
+      <p class="footer-fine">This preview does not accept donations, dispatch rides, or collect what you type. No analytics and no tracking scripts.</p>
+    </div>
+  </footer>
+  <script src="js/flags.js"></script>
+  <script src="js/site.js"></script>
+</body>
+</html>
